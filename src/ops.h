@@ -22,6 +22,8 @@ Status CreateTable2(int **Table, int n)
     int p = pow(2, n);
     *Table = (int *)malloc(p * sizeof(int));
     int t;
+    for (t = 0; t < p; t++)
+        (*Table)[t] = 0;
     printf("Input truth-taking items (decimal numbers, -1 to end): \n");
     while (scanf("%d", &t), t != -1)
         (*Table)[t] = 1;
