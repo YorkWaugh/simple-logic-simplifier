@@ -45,7 +45,7 @@ Status CreateExpression(int *Table, LinkList **Expression, int n)
         if (Table[i] > 0)
         {
             BinNum = ConvertBinNum(i, n);
-            ListInsert((*Expression)[0], ConvertBinNum(i, n), n);
+            ListInsert((*Expression)[0], BinNum, n);
             free(BinNum);
         }
     }
