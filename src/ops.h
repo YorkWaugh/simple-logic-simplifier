@@ -39,11 +39,15 @@ Status CreateExpression(int *Table, LinkList **Expression, int n)
     *Expression = (LinkList *)malloc((n + 1) * sizeof(LinkList));
     (*Expression)[0] = (LinkList)malloc(sizeof(LNode));
     (*Expression)[0]->next = NULL;
-    int i;
+    int i, *BinNum;
     for (i = 0; i < pow(2, n); i++)
     {
         if (Table[i] > 0)
+        {
+            BinNum = ConvertBinNum(i, n);
             ListInsert((*Expression)[0], ConvertBinNum(i, n), n);
+            free(BinNum);
+        }
     }
     return OK;
 }

@@ -60,7 +60,7 @@ Status DestoryList(LinkList L)
 // Conversion from decimal to binary
 int *ConvertBinNum(int num, int length)
 {
-    static int *BinNum;
+    int *BinNum;
     BinNum = (int *)malloc(length * sizeof(length));
     int i = length - 1, x = num;
     do
@@ -77,6 +77,7 @@ void PrintBinNum(int *BinNum, int Length)
     int i;
     for (i = 0; i < Length; i++)
         printf("%d", BinNum[i]);
+    free(BinNum);
 }
 
 void PrintBinItems(int *BinNum, int Length)
