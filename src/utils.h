@@ -167,9 +167,7 @@ int CountDeter(int *Table, int *BinNum, int n, int j)
         if (BinNum[0] != 2)
             return CountDeter(Table, BinNum + 1, n - 1, j + BinNum[0] * pow(2, n - 1));
         else
-        {
             return CountDeter(Table, BinNum + 1, n - 1, j + pow(2, n - 1)) && CountDeter(Table, BinNum + 1, n - 1, j);
-        }
     }
     else
     {
