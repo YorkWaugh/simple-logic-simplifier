@@ -3,7 +3,7 @@
 // Create truth table Mode 1
 Status CreateTable1(int **Table, int n)
 {
-    int p = pow(2, n);
+    int p = 1 << n;
     *Table = (int *)malloc(p * sizeof(int));
     int i;
     printf("Input value(True:1,False:0,Irrelevant:2): \n");
@@ -19,7 +19,7 @@ Status CreateTable1(int **Table, int n)
 // Create truth table Mode 2
 Status CreateTable2(int **Table, int n)
 {
-    int p = pow(2, n);
+    int p = 1 << n;
     *Table = (int *)malloc(p * sizeof(int));
     int t;
     for (t = 0; t < p; t++)
@@ -40,7 +40,7 @@ Status CreateExpression(int *Table, LinkList **Expression, int n)
     (*Expression)[0] = (LinkList)malloc(sizeof(LNode));
     (*Expression)[0]->next = NULL;
     int i, *BinNum;
-    for (i = 0; i < pow(2, n); i++)
+    for (i = 0; i < (1 << n); i++)
     {
         if (Table[i] > 0)
         {

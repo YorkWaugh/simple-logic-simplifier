@@ -114,10 +114,10 @@ Status CountAdd(int *Table, int *BinNum, int n, int j)
     if (n != 1)
     {
         if (BinNum[0] != 2)
-            CountAdd(Table, BinNum + 1, n - 1, j + BinNum[0] * pow(2, n - 1));
+            CountAdd(Table, BinNum + 1, n - 1, j + BinNum[0] * (1 << (n - 1)));
         else
         {
-            CountAdd(Table, BinNum + 1, n - 1, j + pow(2, n - 1));
+            CountAdd(Table, BinNum + 1, n - 1, j + (1 << (n - 1)));
             CountAdd(Table, BinNum + 1, n - 1, j);
         }
     }
@@ -139,10 +139,10 @@ Status CountSub(int *Table, int *BinNum, int n, int j)
     if (n != 1)
     {
         if (BinNum[0] != 2)
-            CountSub(Table, BinNum + 1, n - 1, j + BinNum[0] * pow(2, n - 1));
+            CountSub(Table, BinNum + 1, n - 1, j + BinNum[0] * (1 << (n - 1)));
         else
         {
-            CountSub(Table, BinNum + 1, n - 1, j + pow(2, n - 1));
+            CountSub(Table, BinNum + 1, n - 1, j + (1 << (n - 1)));
             CountSub(Table, BinNum + 1, n - 1, j);
         }
     }
@@ -165,9 +165,9 @@ int CountDeter(int *Table, int *BinNum, int n, int j)
     if (n != 1)
     {
         if (BinNum[0] != 2)
-            return CountDeter(Table, BinNum + 1, n - 1, j + BinNum[0] * pow(2, n - 1));
+            return CountDeter(Table, BinNum + 1, n - 1, j + BinNum[0] * (1 << (n - 1)));
         else
-            return CountDeter(Table, BinNum + 1, n - 1, j + pow(2, n - 1)) && CountDeter(Table, BinNum + 1, n - 1, j);
+            return CountDeter(Table, BinNum + 1, n - 1, j + (1 << (n - 1))) && CountDeter(Table, BinNum + 1, n - 1, j);
     }
     else
     {
